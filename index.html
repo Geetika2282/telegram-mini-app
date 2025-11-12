@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hybrid Telegram App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body style="font-family:sans-serif; text-align:center; padding:20px;">
+  <h2>Welcome to Hybrid App</h2>
+  <p id="user"></p>
+  <button id="sendData">Send Data to Bot</button>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.expand();
+
+    document.getElementById('user').innerText = 
+      "Hi, " + tg.initDataUnsafe?.user?.first_name + "!";
+
+    document.getElementById('sendData').onclick = () => {
+      tg.sendData(JSON.stringify({ mood: "happy", activity: "music" }));
+      tg.close();
+    };
+  </script>
+</body>
+</html>

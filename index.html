@@ -14,10 +14,11 @@
     tg.expand();
 
     document.getElementById('user').innerText = 
-      "Hi, " + tg.initDataUnsafe?.user?.first_name + "!";
+      "Hi, " + (tg.initDataUnsafe?.user?.first_name || "User") + "!";
 
     document.getElementById('sendData').onclick = () => {
-      tg.sendData(JSON.stringify({ mood: "happy", activity: "music" }));
+      const data = { mood: "happy", activity: "music" };
+      tg.sendData(JSON.stringify(data));
       tg.close();
     };
   </script>

@@ -27,11 +27,20 @@
 </html> -->
 
 
-<body style="background:#121212; color:white;">
-  <h2>Hello Telegram!</h2>
-  <p>WebApp connected successfully.</p>
-  <script>
-    const tg = window.Telegram.WebApp;
-    tg.ready(); // tells Telegram the page is ready
-  </script>
-</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  </head>
+  <body style="background:#1c1c1c; color:white; text-align:center; padding-top:50px;">
+    <h2>WebApp Test</h2>
+    <p id="info"></p>
+    <script>
+      const tg = window.Telegram.WebApp;
+      tg.ready();
+      document.getElementById("info").innerText = "Hello, " + tg.initDataUnsafe?.user?.first_name;
+    </script>
+  </body>
+</html>
+
+
